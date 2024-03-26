@@ -71,6 +71,9 @@ type
     procedure ListView1ItemClickEx(const Sender: TObject; ItemIndex: Integer;
       const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
     procedure editaClienteNoBanco(cliente: Tcliente);
+    procedure btnSalvarEdicaoClick(Sender: TObject);
+    function buscarClienteNoBanco(id_cliente: integer): TCliente;
+    procedure deletaCliente(id_cliente: integer);
   private
     { Private declarations }
   public
@@ -129,6 +132,18 @@ begin
 
 end;
 
+procedure Tfrm_Clientes.btnSalvarEdicaoClick(Sender: TObject);
+var vCliente : TCliente;
+begin
+  vCliente.codigo := StrToInt(edtCodigoEdicao.Text);
+  vCliente.nome := edtNomeEdicao.Text;
+  vCliente.endereco := edtEnderecoEdicao.Text;
+
+  editaClienteNoBanco(vCliente);
+
+  ShowMessage('Cliente alterado com sucesso.');
+end;
+
 procedure Tfrm_Clientes.btnVoltarClick(Sender: TObject);
 begin
   TabControl1.TabIndex := 0;
@@ -172,10 +187,17 @@ end;
 procedure Tfrm_Clientes.ListView1ItemClickEx(const Sender: TObject;
   ItemIndex: Integer; const LocalClickPos: TPointF;
   const ItemObject: TListItemDrawable);
+
+var vCliente : TCliente;
+    id_cliente : integer;
 begin
   //chamar a tela de edição
-  edtCodigoEdicao.Text := TListItemText(ListView1.Items[ItemIndex].Objects.FindDrawable('txtCodigo')).Text;
-  edtNomeEdicao.Text := TListItemText(ListView1.Items[ItemIndex].Objects.FindDrawable('txtNome')).Text;
+  id_cliente := StrToInt(TListItemText(ListView1.Items[ItemIndex].Objects.FindDrawable('txtCodigo')).Text);
+  vCliente := buscarClienteNoBanco(id_cliente);
+
+  edtCodigoEdicao.Text := IntToStr(vCliente.codigo);
+  edtNomeEdicao.Text := vCliente.nome;
+  edtEnderecoEdicao.Text := vCliente.endereco;
 
   TabControl1.TabIndex := 2
 end;
@@ -183,6 +205,39 @@ end;
 procedure Tfrm_Clientes.btn_InserirClienteClick(Sender: TObject);
 begin
   TabControl1.TabIndex := 1;
+end;
+
+function Tfrm_Clientes.buscarClienteNoBanco(id_cliente: integer): TCliente;
+  var vCliente : TCliente;
+
+begin
+
+  fdq_Clientes.Close;
+  fdq_Clientes.SQL.Clear;
+  fdq_Clientes.SQL.Add('select * from clientes');
+  fdq_Clientes.SQL.Add(' where codigo = :codigo');
+  fdq_Clientes.ParamByName('codigo').AsInteger := id_cliente;
+
+  fdq_Clientes.Open();
+
+  vCliente.codigo := id_cliente;
+  vCliente.nome := fdq_Clientes.FieldByName('nome').AsString;
+  vCliente.endereco := fdq_Clientes.FieldByName('endereco').AsString;
+
+  Result := vCliente;
+  end;
+
+procedure Tfrm_Clientes.deletaCliente(id_cliente: integer);
+begin
+
+  fdq_Clientes.Close;
+  fdq_Clientes.SQL.Clear;
+  fdq_Clientes.SQL.Add('delete from clientes');
+  fdq_Clientes.SQL.Add(' where codigo = :codigo');
+
+  fdq_Clientes.ParamByName('codigo').AsInteger := id_cliente;
+
+  fdq_Clientes.ExecSQL;
 end;
 
 procedure Tfrm_Clientes.editaClienteNoBanco(cliente: Tcliente);
@@ -207,5 +262,7 @@ procedure Tfrm_Clientes.FormShow(Sender: TObject);
 begin
   TabControl1.TabIndex := 0;
 end;
+
+
 
 end.

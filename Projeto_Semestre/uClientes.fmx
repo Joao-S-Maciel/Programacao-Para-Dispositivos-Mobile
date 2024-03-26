@@ -190,6 +190,7 @@ object frm_Clientes: Tfrm_Clientes
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         Align = Top
         TabOrder = 6
+        CanFocus = False
         Position.Y = 89.000000000000000000
         Size.Width = 260.000000000000000000
         Size.Height = 22.000000000000000000
@@ -307,6 +308,7 @@ object frm_Clientes: Tfrm_Clientes
         Align = Top
         TabOrder = 6
         Position.Y = 89.000000000000000000
+        Enabled = False
         Size.Width = 260.000000000000000000
         Size.Height = 22.000000000000000000
         Size.PlatformDefault = False
@@ -360,10 +362,11 @@ object frm_Clientes: Tfrm_Clientes
         TabOrder = 7
         object btnSalvarEdicao: TSpeedButton
           Align = Center
-          StyledSettings = [Family, Style, FontColor]
-          Text = 'Salvar'
-          TextSettings.Font.Size = 20.000000000000000000
-          OnClick = btnSalvarClick
+          Size.Width = 260.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'SALVAR'
+          OnClick = btnSalvarEdicaoClick
         end
       end
     end
