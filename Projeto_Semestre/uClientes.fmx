@@ -14,7 +14,7 @@ object frm_Clientes: Tfrm_Clientes
     Size.Width = 260.000000000000000000
     Size.Height = 480.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 0
+    TabIndex = 2
     TabOrder = 0
     TabPosition = None
     Sizes = (
@@ -28,7 +28,7 @@ object frm_Clientes: Tfrm_Clientes
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -131,6 +131,7 @@ object frm_Clientes: Tfrm_Clientes
               AppearanceObjectName = 'Text1'
               AppearanceClassName = 'TTextObjectAppearance'
             end>
+          OnItemClickEx = ListView1ItemClickEx
         end
       end
     end
@@ -160,6 +161,7 @@ object frm_Clientes: Tfrm_Clientes
           Size.PlatformDefault = False
           StyleLookup = 'priortoolbutton'
           Text = 'btnVoltar'
+          OnClick = btnVoltarClick
         end
         object Label2: TLabel
           Align = Client
@@ -253,7 +255,7 @@ object frm_Clientes: Tfrm_Clientes
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -262,12 +264,117 @@ object frm_Clientes: Tfrm_Clientes
       Text = 'tbEditar'
       ExplicitSize.cx = 8.000000000000000000
       ExplicitSize.cy = 8.000000000000000000
+      object Layout6: TLayout
+        Align = Top
+        Size.Width = 260.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object SpeedButton2: TSpeedButton
+          Align = Left
+          Size.Width = 50.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'priortoolbutton'
+          Text = 'btnVoltar'
+          OnClick = btnVoltarClick
+        end
+        object Label3: TLabel
+          Align = Client
+          StyledSettings = [Family, Style, FontColor]
+          Size.Width = 210.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 25.000000000000000000
+          TextSettings.HorzAlign = Center
+          Text = 'Editar Cliente'
+          TabOrder = 1
+        end
+      end
+      object Label4: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Position.Y = 50.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 39.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 16.000000000000000000
+        Text = 'Codigo'
+        TabOrder = 3
+      end
+      object edtCodigoEdicao: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 6
+        Position.Y = 89.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Label5: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Position.Y = 111.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 39.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 16.000000000000000000
+        Text = 'Nome:'
+        TabOrder = 2
+      end
+      object edtNomeEdicao: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 5
+        Position.Y = 150.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Label6: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Position.Y = 172.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 39.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 16.000000000000000000
+        Text = 'Endere'#231'o:'
+        TabOrder = 1
+      end
+      object edtEnderecoEdicao: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 4
+        Position.Y = 211.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Layout7: TLayout
+        Align = Top
+        Position.Y = 233.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 7
+        object btnSalvarEdicao: TSpeedButton
+          Align = Center
+          StyledSettings = [Family, Style, FontColor]
+          Text = 'Salvar'
+          TextSettings.Font.Size = 20.000000000000000000
+          OnClick = btnSalvarClick
+        end
+      end
     end
   end
   object FDConnection1: TFDConnection
     Params.Strings = (
-      'Database=D:\Users\jvsmaciel\Desktop\Projeto_Semestre\DB\DB'
+      
+        'Database=D:\Users\jvsmaciel\Downloads\Programa-o-Para-Dispositiv' +
+        'os-Mobile-main\Projeto_Semestre\DB\DB'
       'DriverID=SQLite')
+    Connected = True
     LoginPrompt = False
     Left = 168
     Top = 380

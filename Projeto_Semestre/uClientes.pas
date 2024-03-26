@@ -49,6 +49,17 @@ type
     edtEndereco: TEdit;
     Layout5: TLayout;
     btnSalvar: TSpeedButton;
+    Layout6: TLayout;
+    SpeedButton2: TSpeedButton;
+    Label3: TLabel;
+    Label4: TLabel;
+    edtCodigoEdicao: TEdit;
+    Label5: TLabel;
+    edtNomeEdicao: TEdit;
+    Label6: TLabel;
+    edtEnderecoEdicao: TEdit;
+    Layout7: TLayout;
+    btnSalvarEdicao: TSpeedButton;
     procedure btn_AtualizarClick(Sender: TObject);
     procedure atualizaClientesDoBanco();
     procedure insereClienteNaLista(cliente: TCliente);
@@ -56,6 +67,10 @@ type
     procedure btnSalvarClick(Sender: TObject);
     procedure insereClienteNoBanco(cliente : Tcliente);
     procedure FormShow(Sender: TObject);
+    procedure btnVoltarClick(Sender: TObject);
+    procedure ListView1ItemClickEx(const Sender: TObject; ItemIndex: Integer;
+      const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
+    procedure editaClienteNoBanco(cliente: Tcliente);
   private
     { Private declarations }
   public
@@ -114,12 +129,16 @@ begin
 
 end;
 
+procedure Tfrm_Clientes.btnVoltarClick(Sender: TObject);
+begin
+  TabControl1.TabIndex := 0;
+end;
+
 procedure Tfrm_Clientes.btn_AtualizarClick(Sender: TObject);
 begin
 
 // chamar metodo de consulta do banco de dados
 atualizaClientesDoBanco;
-
 
 end;
 
@@ -150,18 +169,43 @@ begin
 
 end;
 
+procedure Tfrm_Clientes.ListView1ItemClickEx(const Sender: TObject;
+  ItemIndex: Integer; const LocalClickPos: TPointF;
+  const ItemObject: TListItemDrawable);
+begin
+  //chamar a tela de edição
+  edtCodigoEdicao.Text := TListItemText(ListView1.Items[ItemIndex].Objects.FindDrawable('txtCodigo')).Text;
+  edtNomeEdicao.Text := TListItemText(ListView1.Items[ItemIndex].Objects.FindDrawable('txtNome')).Text;
+
+  TabControl1.TabIndex := 2
+end;
+
 procedure Tfrm_Clientes.btn_InserirClienteClick(Sender: TObject);
 begin
-
   TabControl1.TabIndex := 1;
+end;
+
+procedure Tfrm_Clientes.editaClienteNoBanco(cliente: Tcliente);
+begin
+
+fdq_Clientes.Close;
+fdq_Clientes.SQL.Clear;
+fdq_Clientes.SQL.Add('update clientes set');
+fdq_Clientes.SQL.Add(' nome = :nome, ');
+fdq_Clientes.SQL.Add(' endereco = :endereco ');
+fdq_Clientes.SQL.Add(' where codigo = :codigo');
+
+fdq_Clientes.ParamByName('codigo').AsInteger := cliente.codigo;
+fdq_Clientes.ParamByName('nome').AsString := cliente.nome;
+fdq_Clientes.ParamByName('endereco').AsString := cliente.endereco;
+
+fdq_Clientes.ExecSQL;
 
 end;
 
 procedure Tfrm_Clientes.FormShow(Sender: TObject);
 begin
-
   TabControl1.TabIndex := 0;
-
 end;
 
 end.
