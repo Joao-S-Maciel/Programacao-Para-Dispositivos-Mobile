@@ -12,6 +12,7 @@ type
     btn_Clientes: TButton;
     btn_Produtos: TButton;
     procedure btn_ClientesClick(Sender: TObject);
+    procedure btn_ProdutosClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -25,13 +26,18 @@ implementation
 
 {$R *.fmx}
 
-uses uClientes;
+uses uClientes, uProdutos;
 
 procedure Tfrm_Principal.btn_ClientesClick(Sender: TObject);
 begin
 
   frm_Clientes.Show;
 
+end;
+
+procedure Tfrm_Principal.btn_ProdutosClick(Sender: TObject);
+begin
+  frmProdutos.Show;
 end;
 
 end.

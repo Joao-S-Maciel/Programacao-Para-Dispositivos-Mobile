@@ -60,6 +60,7 @@ type
     edtEnderecoEdicao: TEdit;
     Layout7: TLayout;
     btnSalvarEdicao: TSpeedButton;
+    btnDeletar: TSpeedButton;
     procedure btn_AtualizarClick(Sender: TObject);
     procedure atualizaClientesDoBanco();
     procedure insereClienteNaLista(cliente: TCliente);
@@ -74,10 +75,11 @@ type
     procedure btnSalvarEdicaoClick(Sender: TObject);
     function buscarClienteNoBanco(id_cliente: integer): TCliente;
     procedure deletaCliente(id_cliente: integer);
+    procedure btnDeletarClick(Sender: TObject);
   private
     { Private declarations }
   public
-    { Public declarations }
+
   end;
 
 var
@@ -100,7 +102,7 @@ if edt_Pesquisa.Text <> ''  then
     fdq_Clientes.SQL.Add(' where nome like :pesquisa');
     fdq_Clientes.ParamByName('pesquisa').AsString := edt_Pesquisa.Text;
   end;
-
+fdq_Clientes.SQL.Add(' order by codigo');
 
 fdq_Clientes.Open();
 
@@ -121,6 +123,18 @@ while not fdq_Clientes.Eof do
 
 end;
 
+procedure Tfrm_Clientes.btnDeletarClick(Sender: TObject);
+var id_cliente : integer;
+begin
+
+  id_cliente := StrToInt(edtCodigoEdicao.text);
+  deletaCliente(id_cliente);
+  ShowMessage('Cliente deletado com sucesso');
+  TabControl1.TabIndex := 0;
+  atualizaClientesDoBanco;
+
+end;
+
 procedure Tfrm_Clientes.btnSalvarClick(Sender: TObject);
 var vCliente : TCliente;
 begin
@@ -129,6 +143,9 @@ begin
   vCliente.nome := edtNome.Text;
   vCliente.endereco := edtEndereco.Text;
   insereClienteNoBanco(vCliente);
+
+  TabControl1.TabIndex := 0;
+  atualizaClientesDoBanco;
 
 end;
 
