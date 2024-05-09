@@ -1,0 +1,168 @@
+unit uProdutos;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.TabControl,
+  FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit,
+  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
+  FMX.ListView, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client, FireDAC.UI.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool,
+  FireDAC.Phys, FireDAC.Phys.SQLite, FireDAC.Phys.SQLiteDef,
+  FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteWrapper.Stat, FireDAC.FMXUI.Wait;
+
+type
+  Tproduto = record
+    codigo, estoque : Integer;
+    descricao : string;
+  end;
+
+
+  TfrmProdutos = class(TForm)
+    TabControl1: TTabControl;
+    tbConsultar: TTabItem;
+    tbEditar: TTabItem;
+    tbInserir: TTabItem;
+    Layout1: TLayout;
+    btnVoltarProduto: TSpeedButton;
+    btnAdicionarProduto: TSpeedButton;
+    Label1: TLabel;
+    Layout2: TLayout;
+    btn_Atualizar: TSpeedButton;
+    edt_Pesquisa: TEdit;
+    ListView1: TListView;
+    FDConnection1: TFDConnection;
+    fdq_Produtos: TFDQuery;
+    Layout4: TLayout;
+    btnVoltar: TSpeedButton;
+    Label2: TLabel;
+    lbCodigo: TLabel;
+    edtCodigo: TEdit;
+    lbDescricao: TLabel;
+    edtDescricao: TEdit;
+    lbEstoque: TLabel;
+    edtEstoque: TEdit;
+    Layout5: TLayout;
+    btnSalvar: TSpeedButton;
+    procedure btn_AtualizarClick(Sender: TObject);
+    procedure atualizaProdutosDoBanco();
+    procedure insereProdutoNaLista(produto: Tproduto);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure insereProdutoNoBanco(produto: Tproduto);
+    procedure btnAdicionarProdutoClick(Sender: TObject);
+    procedure btnVoltarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmProdutos: TfrmProdutos;
+
+implementation
+
+{$R *.fmx}
+
+
+
+
+
+procedure TfrmProdutos.atualizaProdutosDoBanco;
+var vProduto : Tproduto;
+begin
+//Efetuar a consulta do banco e trazer todos os clientes
+
+fdq_Produtos.close;
+fdq_Produtos.SQL.Clear;
+fdq_Produtos.SQL.Add('select * from produtos');
+if edt_Pesquisa.Text <> ''  then
+  begin
+    fdq_Produtos.SQL.Add(' where descricao like :pesquisa');
+    fdq_Produtos.ParamByName('pesquisa').AsString := edt_Pesquisa.Text;
+  end;
+fdq_Produtos.SQL.Add(' order by codigo');
+
+fdq_Produtos.Open();
+
+fdq_Produtos.First;
+
+ListView1.Items.Clear;
+
+while not fdq_Produtos.Eof do
+  begin
+    vProduto.codigo := fdq_Produtos.FieldByName('codigo').AsInteger;
+    vProduto.descricao := fdq_Produtos.FieldByName('descricao').AsString;
+    vProduto.estoque := fdq_Produtos.FieldByName('estoque').AsInteger;
+
+    insereProdutoNaLista(vProduto);
+
+    fdq_Produtos.Next;
+  end;
+
+end;
+
+procedure TfrmProdutos.btnAdicionarProdutoClick(Sender: TObject);
+begin
+   TabControl1.TabIndex := 1;
+end;
+
+procedure TfrmProdutos.btnSalvarClick(Sender: TObject);
+var vProduto : TProduto;
+begin
+  //chamar procedimento para inserir cliente no banco
+  vProduto.codigo := StrToInt(edtCodigo.Text);
+  vProduto.descricao := edtDescricao.Text;
+  vProduto.estoque := StrToInt(edtEstoque.Text);
+  insereProdutoNoBanco(vProduto);
+
+  TabControl1.TabIndex := 0;
+  atualizaProdutosDoBanco;
+
+end;
+
+procedure TfrmProdutos.btnVoltarClick(Sender: TObject);
+begin
+   TabControl1.TabIndex := 0;
+end;
+
+procedure TfrmProdutos.btn_AtualizarClick(Sender: TObject);
+begin
+  // chamar metodo de consulta do banco de dados
+  atualizaProdutosDoBanco;
+
+end;
+
+procedure TfrmProdutos.insereProdutoNaLista(produto: Tproduto);
+begin
+// insere produto na lista
+
+With ListView1.Items.Add do
+  begin
+    TListItemText(Objects.FindDrawable('txtCodigo')).Text := IntToStr(produto.codigo);
+    TListItemText(Objects.FindDrawable('txtDescricao')).Text := produto.descricao;
+    TListItemText(Objects.FindDrawable('txtEstoque')).Text := IntToStr(produto.estoque);
+  end;
+
+
+end;
+
+procedure TfrmProdutos.insereProdutoNoBanco(produto: Tproduto);
+begin
+
+  fdq_Produtos.Close;
+  fdq_Produtos.SQL.Clear;
+  fdq_Produtos.SQL.Add('insert into produtos (codigo, descricao, estoque) values(:codigo, :descricao, :estoque)');
+  fdq_Produtos.ParamByName('codigo').AsInteger := produto.codigo;
+  fdq_Produtos.ParamByName('descricao').AsString := produto.descricao;
+  fdq_Produtos.ParamByName('estoque').AsInteger := produto.estoque;
+
+  fdq_Produtos.ExecSQL;
+
+end;
+
+end.
+

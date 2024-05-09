@@ -75,13 +75,8 @@ type
     Label8: TLabel;
     edtQuantidade: TEdit;
     Layout9: TLayout;
-    btnAdicionarEstoque: TSpeedButton;
-    btnRemoverEstoque: TSpeedButton;
-    Layout10: TLayout;
-    Label9: TLabel;
-    Label10: TLabel;
-    Label11: TLabel;
-    Label12: TLabel;
+    Adicionar: TSpeedButton;
+    Remover: TSpeedButton;
     procedure btn_AtualizarClick(Sender: TObject);
     procedure atualizaProdutosDoBanco();
     procedure insereProdutoNaLista(produto: Tproduto);
@@ -97,8 +92,6 @@ type
     procedure btnDeletarClick(Sender: TObject);
     procedure deletaProduto(id_produto: integer);
     procedure btnLancamentoEstoqueClick(Sender: TObject);
-    procedure btnAdicionarEstoqueClick(Sender: TObject);
-    procedure btnRemoverEstoqueClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -111,7 +104,6 @@ var
 implementation
 
 {$R *.fmx}
-
 
 procedure TfrmProdutos.atualizaProdutosDoBanco;
 var vProduto : Tproduto;
@@ -136,7 +128,6 @@ ListView1.Items.Clear;
 
 while not fdq_Produtos.Eof do
   begin
-
     vProduto.codigo := fdq_Produtos.FieldByName('codigo').AsInteger;
     vProduto.descricao := fdq_Produtos.FieldByName('descricao').AsString;
     vProduto.estoque := fdq_Produtos.FieldByName('estoque').AsInteger;
@@ -146,26 +137,6 @@ while not fdq_Produtos.Eof do
 
     fdq_Produtos.Next;
   end;
-
-end;
-
-procedure TfrmProdutos.btnAdicionarEstoqueClick(Sender: TObject);
-var vProduto : Tproduto;
-    id_produto : Integer;
-    soma : Integer;
-begin
-  id_produto := StrToInt(edtCodigoEdicao.text);
-  vProduto := buscarProdutoNoBanco(id_produto);
-
-  soma := (vProduto.estoque + StrToInt(edtQuantidade.Text));
-
-  vProduto.estoque := soma;
-
-  editaProdutoNoBanco(vProduto);
-
-  ShowMessage('Estoque alterado com sucesso.');
-  TabControl1.TabIndex := 0;
-  atualizaProdutosDoBanco;
 
 end;
 
@@ -192,29 +163,10 @@ var id_produto : integer;
 begin
    TabControl1.TabIndex := 3;
    id_produto := StrToInt(edtCodigoEdicao.Text);
-
    vProduto := buscarProdutoNoBanco(id_produto);
-
    edtProdutoEstoque.text := vProduto.descricao;
-end;
 
-procedure TfrmProdutos.btnRemoverEstoqueClick(Sender: TObject);
-var vProduto : Tproduto;
-    id_produto : Integer;
-    soma : Integer;
-begin
-  id_produto := StrToInt(edtCodigoEdicao.text);
-  vProduto := buscarProdutoNoBanco(id_produto);
 
-  soma := (vProduto.estoque - StrToInt(edtQuantidade.Text));
-
-  vProduto.estoque := soma;
-
-  editaProdutoNoBanco(vProduto);
-
-  ShowMessage('Estoque alterado com sucesso.');
-  TabControl1.TabIndex := 0;
-  atualizaProdutosDoBanco;
 
 end;
 
@@ -253,7 +205,6 @@ procedure TfrmProdutos.btnVoltarClick(Sender: TObject);
 begin
    TabControl1.TabIndex := 0;
 end;
-
 
 procedure TfrmProdutos.btn_AtualizarClick(Sender: TObject);
 begin

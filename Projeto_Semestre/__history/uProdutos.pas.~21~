@@ -77,11 +77,6 @@ type
     Layout9: TLayout;
     btnAdicionarEstoque: TSpeedButton;
     btnRemoverEstoque: TSpeedButton;
-    Layout10: TLayout;
-    Label9: TLabel;
-    Label10: TLabel;
-    Label11: TLabel;
-    Label12: TLabel;
     procedure btn_AtualizarClick(Sender: TObject);
     procedure atualizaProdutosDoBanco();
     procedure insereProdutoNaLista(produto: Tproduto);

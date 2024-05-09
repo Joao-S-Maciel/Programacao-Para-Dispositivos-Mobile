@@ -105,7 +105,7 @@ object frmProdutos: TfrmProdutos
         FooterAppearanceClassName = 'TListHeaderObjects'
         Align = Client
         Size.Width = 260.000000000000000000
-        Size.Height = 344.000000000000000000
+        Size.Height = 370.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
@@ -142,49 +142,6 @@ object frmProdutos: TfrmProdutos
             AppearanceClassName = 'TTextObjectAppearance'
           end>
         OnItemClickEx = ListView1ItemClickEx
-      end
-      object Layout10: TLayout
-        Align = Top
-        Position.Y = 110.000000000000000000
-        Size.Width = 260.000000000000000000
-        Size.Height = 26.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 3
-        object Label9: TLabel
-          Align = Left
-          Size.Width = 33.000000000000000000
-          Size.Height = 26.000000000000000000
-          Size.PlatformDefault = False
-          Text = 'Cod'
-          TabOrder = 0
-        end
-        object Label10: TLabel
-          Align = Right
-          Position.X = 224.000000000000000000
-          Size.Width = 36.000000000000000000
-          Size.Height = 26.000000000000000000
-          Size.PlatformDefault = False
-          Text = 'Pre'#231'o'
-          TabOrder = 1
-        end
-        object Label11: TLabel
-          Align = Right
-          Position.X = 176.000000000000000000
-          Size.Width = 48.000000000000000000
-          Size.Height = 26.000000000000000000
-          Size.PlatformDefault = False
-          Text = 'Estoque'
-          TabOrder = 2
-        end
-        object Label12: TLabel
-          Align = Client
-          Size.Width = 143.000000000000000000
-          Size.Height = 26.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.HorzAlign = Center
-          Text = 'Descri'#231#227'o'
-          TabOrder = 3
-        end
       end
     end
     object tbEditar: TTabItem

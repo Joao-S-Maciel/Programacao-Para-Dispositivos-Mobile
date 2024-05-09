@@ -1,0 +1,283 @@
+object frmProdutos: TfrmProdutos
+  Left = 0
+  Top = 0
+  Caption = 'Produtos'
+  ClientHeight = 480
+  ClientWidth = 260
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object TabControl1: TTabControl
+    Align = Client
+    Size.Width = 260.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'tabcontrolstyle'
+    TabIndex = 0
+    TabOrder = 0
+    TabPosition = None
+    Sizes = (
+      260s
+      480s
+      260s
+      480s
+      260s
+      480s)
+    object tbConsultar: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem1'
+      object Layout1: TLayout
+        Align = Top
+        Size.Width = 260.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object btnVoltarProduto: TSpeedButton
+          Align = Left
+          Size.Width = 50.000000000000000000
+          Size.Height = 60.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'priortoolbuttonbordered'
+        end
+        object btnAdicionarProduto: TSpeedButton
+          Align = Right
+          Position.X = 210.000000000000000000
+          Size.Width = 50.000000000000000000
+          Size.Height = 60.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'addtoolbutton'
+          OnClick = btnAdicionarProdutoClick
+        end
+        object Label1: TLabel
+          Align = Client
+          StyledSettings = [Family, Style, FontColor]
+          Size.Width = 160.000000000000000000
+          Size.Height = 60.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 20.000000000000000000
+          TextSettings.HorzAlign = Center
+          Text = 'PRODUTOS'
+          TabOrder = 2
+        end
+      end
+      object Layout2: TLayout
+        Align = Top
+        Position.Y = 60.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object btn_Atualizar: TSpeedButton
+          Align = Right
+          Position.X = 210.000000000000000000
+          Size.Width = 50.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'refreshtoolbuttonbordered'
+          OnClick = btn_AtualizarClick
+        end
+        object edt_Pesquisa: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Center
+          TabOrder = 1
+          Size.Width = 210.000000000000000000
+          Size.Height = 27.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
+      object ListView1: TListView
+        ItemAppearanceClassName = 'TDynamicAppearance'
+        ItemEditAppearanceClassName = 'TDynamicAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        Align = Client
+        Size.Width = 260.000000000000000000
+        Size.Height = 370.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'txtDescricao'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Width = 191.000000000000000000
+            Appearance.Height = 44.000000000000000000
+            Appearance.PlaceOffset.X = 16.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'txtCodigo'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Width = 17.000000000000000000
+            Appearance.Height = 44.000000000000000000
+            Appearance.PlaceOffset.X = -2.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'txtEstoque'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Width = 31.000000000000000000
+            Appearance.Height = 44.000000000000000000
+            Appearance.PlaceOffset.X = 208.000000000000000000
+          end>
+        ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'Text1'
+            AppearanceClassName = 'TTextObjectAppearance'
+          end>
+      end
+    end
+    object tbEditar: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tbEditar'
+      object Layout4: TLayout
+        Align = Top
+        Size.Width = 260.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object btnVoltar: TSpeedButton
+          Align = Left
+          Size.Width = 50.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'priortoolbutton'
+          Text = 'btnVoltar'
+          OnClick = btnVoltarClick
+        end
+        object Label2: TLabel
+          Align = Client
+          StyledSettings = [Family, Style, FontColor]
+          Size.Width = 210.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 25.000000000000000000
+          TextSettings.HorzAlign = Center
+          Text = 'Inserir Produto'
+          TabOrder = 1
+        end
+      end
+      object lbCodigo: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Position.Y = 50.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 39.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 16.000000000000000000
+        Text = 'Codigo'
+        TabOrder = 2
+      end
+      object edtCodigo: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 5
+        Position.Y = 89.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object lbDescricao: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Position.Y = 111.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 39.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 16.000000000000000000
+        Text = 'Descricao:'
+        TabOrder = 3
+      end
+      object edtDescricao: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 8
+        Position.Y = 150.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object lbEstoque: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Position.Y = 172.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 39.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 16.000000000000000000
+        Text = 'Estoque:'
+        TabOrder = 1
+      end
+      object edtEstoque: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 4
+        Position.Y = 211.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Layout5: TLayout
+        Align = Top
+        Position.Y = 233.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 7
+        object btnSalvar: TSpeedButton
+          Align = Center
+          StyledSettings = [Family, Style, FontColor]
+          Text = 'Salvar'
+          TextSettings.Font.Size = 20.000000000000000000
+          OnClick = btnSalvarClick
+        end
+      end
+    end
+    object tbInserir: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tbInserir'
+    end
+  end
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      
+        'Database=C:\Users\Joaos\Desktop\Univel\Programacao-Para-Disposit' +
+        'ivos-Mobile-main\Projeto_Semestre\DB\DB'
+      'LockingMode=Normal'
+      'DriverID=SQLite')
+    Connected = True
+    LoginPrompt = False
+    Left = 168
+    Top = 380
+  end
+  object fdq_Produtos: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from produtos'
+      '')
+    Left = 80
+    Top = 380
+  end
+end

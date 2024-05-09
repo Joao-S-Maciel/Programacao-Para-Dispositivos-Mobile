@@ -1,430 +1,13 @@
-object frm_Clientes: Tfrm_Clientes
+object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Clientes'
+  Caption = 'frm_Pedidos'
   ClientHeight = 480
   ClientWidth = 260
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  OnShow = FormShow
   DesignerMasterStyle = 0
-  object TabControl1: TTabControl
-    Align = Client
-    Size.Width = 260.000000000000000000
-    Size.Height = 480.000000000000000000
-    Size.PlatformDefault = False
-    TabIndex = 0
-    TabOrder = 0
-    TabPosition = None
-    Sizes = (
-      260s
-      480s
-      260s
-      480s
-      260s
-      480s)
-    object tbConsultar: TTabItem
-      CustomIcon = <
-        item
-        end>
-      IsSelected = True
-      Size.Width = 8.000000000000000000
-      Size.Height = 8.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = ''
-      TabOrder = 0
-      Text = 'tbConsultar'
-      ExplicitSize.cx = 8.000000000000000000
-      ExplicitSize.cy = 8.000000000000000000
-      object Layout1: TLayout
-        Align = Top
-        Size.Width = 260.000000000000000000
-        Size.Height = 60.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 0
-        object SpeedButton1: TSpeedButton
-          Align = Left
-          Size.Width = 50.000000000000000000
-          Size.Height = 60.000000000000000000
-          Size.PlatformDefault = False
-          StyleLookup = 'priortoolbuttonbordered'
-          Text = 'priortoolbutton'
-        end
-        object btn_InserirCliente: TSpeedButton
-          Align = Right
-          Position.X = 210.000000000000000000
-          Size.Width = 50.000000000000000000
-          Size.Height = 60.000000000000000000
-          Size.PlatformDefault = False
-          StyleLookup = 'addtoolbutton'
-          Text = 'addtoolbutton'
-          OnClick = btn_InserirClienteClick
-        end
-        object Label1: TLabel
-          Align = Client
-          StyledSettings = [Family, Style, FontColor]
-          Size.Width = 160.000000000000000000
-          Size.Height = 60.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.Size = 20.000000000000000000
-          TextSettings.HorzAlign = Center
-          Text = 'CLIENTES'
-          TabOrder = 2
-        end
-      end
-      object Layout2: TLayout
-        Align = Top
-        Position.Y = 60.000000000000000000
-        Size.Width = 260.000000000000000000
-        Size.Height = 50.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 1
-        object btn_Atualizar: TSpeedButton
-          Align = Right
-          Position.X = 210.000000000000000000
-          Size.Width = 50.000000000000000000
-          Size.Height = 50.000000000000000000
-          Size.PlatformDefault = False
-          StyleLookup = 'refreshtoolbuttonbordered'
-          OnClick = btn_AtualizarClick
-        end
-        object edt_Pesquisa: TEdit
-          Touch.InteractiveGestures = [LongTap, DoubleTap]
-          Align = Center
-          TabOrder = 1
-          Size.Width = 210.000000000000000000
-          Size.Height = 27.000000000000000000
-          Size.PlatformDefault = False
-        end
-      end
-      object Layout3: TLayout
-        Align = Client
-        Size.Width = 260.000000000000000000
-        Size.Height = 370.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 2
-        object ListView1: TListView
-          ItemAppearanceClassName = 'TDynamicAppearance'
-          ItemEditAppearanceClassName = 'TDynamicAppearance'
-          HeaderAppearanceClassName = 'TListHeaderObjects'
-          FooterAppearanceClassName = 'TListHeaderObjects'
-          Align = Client
-          Size.Width = 260.000000000000000000
-          Size.Height = 370.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 0
-          ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
-            item
-              AppearanceObjectName = 'txtNome'
-              AppearanceClassName = 'TTextObjectAppearance'
-              Appearance.TextAlign = Leading
-              Appearance.Width = 140.000000000000000000
-              Appearance.Height = 25.000000000000000000
-              Appearance.PlaceOffset.X = 77.000000000000000000
-            end
-            item
-              AppearanceObjectName = 'txtCodigo'
-              AppearanceClassName = 'TTextObjectAppearance'
-              Appearance.Width = 30.000000000000000000
-              Appearance.Height = 50.000000000000000000
-              Appearance.PlaceOffset.X = 46.000000000000000000
-            end
-            item
-              AppearanceObjectName = 'imgCliente'
-              AppearanceClassName = 'TImageObjectAppearance'
-              Appearance.Width = 42.000000000000000000
-              Appearance.Height = 42.000000000000000000
-              Appearance.Align = Center
-              Appearance.PlaceOffset.X = -96.000000000000000000
-            end
-            item
-              AppearanceObjectName = 'txtEndereco'
-              AppearanceClassName = 'TTextObjectAppearance'
-              Appearance.Width = 140.000000000000000000
-              Appearance.Height = 20.000000000000000000
-              Appearance.Align = Center
-              Appearance.PlaceOffset.X = 27.000000000000000000
-              Appearance.PlaceOffset.Y = 24.000000000000000000
-            end
-            item
-              AppearanceObjectName = 'imgEditar'
-              AppearanceClassName = 'TImageObjectAppearance'
-              Appearance.Width = 20.000000000000000000
-              Appearance.Height = 20.000000000000000000
-              Appearance.PlaceOffset.X = 216.000000000000000000
-              Appearance.PlaceOffset.Y = 2.000000000000000000
-            end
-            item
-              AppearanceObjectName = 'imgDeletar'
-              AppearanceClassName = 'TImageObjectAppearance'
-              Appearance.Width = 20.000000000000000000
-              Appearance.Height = 20.000000000000000000
-              Appearance.PlaceOffset.X = 216.000000000000000000
-              Appearance.PlaceOffset.Y = 22.000000000000000000
-            end>
-          ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
-            item
-              AppearanceObjectName = 'Text1'
-              AppearanceClassName = 'TTextObjectAppearance'
-            end>
-          OnItemClickEx = ListView1ItemClickEx
-        end
-      end
-    end
-    object tbInserir: TTabItem
-      CustomIcon = <
-        item
-        end>
-      IsSelected = False
-      Size.Width = 8.000000000000000000
-      Size.Height = 8.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = ''
-      TabOrder = 0
-      Text = 'tbInserir'
-      ExplicitSize.cx = 8.000000000000000000
-      ExplicitSize.cy = 8.000000000000000000
-      object Layout4: TLayout
-        Align = Top
-        Size.Width = 260.000000000000000000
-        Size.Height = 50.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 0
-        object btnVoltar: TSpeedButton
-          Align = Left
-          Size.Width = 50.000000000000000000
-          Size.Height = 50.000000000000000000
-          Size.PlatformDefault = False
-          StyleLookup = 'priortoolbutton'
-          Text = 'btnVoltar'
-          OnClick = btnVoltarClick
-        end
-        object Label2: TLabel
-          Align = Client
-          StyledSettings = [Family, Style, FontColor]
-          Size.Width = 210.000000000000000000
-          Size.Height = 50.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.Size = 25.000000000000000000
-          TextSettings.HorzAlign = Center
-          Text = 'Inserir Cliente'
-          TabOrder = 1
-        end
-      end
-      object lbCodigo: TLabel
-        Align = Top
-        StyledSettings = [Family, Style, FontColor]
-        Position.Y = 50.000000000000000000
-        Size.Width = 260.000000000000000000
-        Size.Height = 39.000000000000000000
-        Size.PlatformDefault = False
-        TextSettings.Font.Size = 16.000000000000000000
-        Text = 'Codigo'
-        TabOrder = 3
-      end
-      object edtCodigo: TEdit
-        Touch.InteractiveGestures = [LongTap, DoubleTap]
-        Align = Top
-        TabOrder = 6
-        Position.Y = 89.000000000000000000
-        Size.Width = 260.000000000000000000
-        Size.Height = 22.000000000000000000
-        Size.PlatformDefault = False
-      end
-      object lbNome: TLabel
-        Align = Top
-        StyledSettings = [Family, Style, FontColor]
-        Position.Y = 111.000000000000000000
-        Size.Width = 260.000000000000000000
-        Size.Height = 39.000000000000000000
-        Size.PlatformDefault = False
-        TextSettings.Font.Size = 16.000000000000000000
-        Text = 'Nome:'
-        TabOrder = 2
-      end
-      object edtNome: TEdit
-        Touch.InteractiveGestures = [LongTap, DoubleTap]
-        Align = Top
-        TabOrder = 5
-        Position.Y = 150.000000000000000000
-        Size.Width = 260.000000000000000000
-        Size.Height = 22.000000000000000000
-        Size.PlatformDefault = False
-      end
-      object lbEndereco: TLabel
-        Align = Top
-        StyledSettings = [Family, Style, FontColor]
-        Position.Y = 172.000000000000000000
-        Size.Width = 260.000000000000000000
-        Size.Height = 39.000000000000000000
-        Size.PlatformDefault = False
-        TextSettings.Font.Size = 16.000000000000000000
-        Text = 'Endere'#231'o:'
-        TabOrder = 1
-      end
-      object edtEndereco: TEdit
-        Touch.InteractiveGestures = [LongTap, DoubleTap]
-        Align = Top
-        TabOrder = 4
-        Position.Y = 211.000000000000000000
-        Size.Width = 260.000000000000000000
-        Size.Height = 22.000000000000000000
-        Size.PlatformDefault = False
-      end
-      object Layout5: TLayout
-        Align = Top
-        Position.Y = 233.000000000000000000
-        Size.Width = 260.000000000000000000
-        Size.Height = 50.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 7
-        object btnSalvar: TSpeedButton
-          Align = Center
-          StyledSettings = [Family, Style, FontColor]
-          Text = 'Salvar'
-          TextSettings.Font.Size = 20.000000000000000000
-          OnClick = btnSalvarClick
-        end
-      end
-    end
-    object tbEditar: TTabItem
-      CustomIcon = <
-        item
-        end>
-      IsSelected = False
-      Size.Width = 8.000000000000000000
-      Size.Height = 8.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = ''
-      TabOrder = 0
-      Text = 'tbEditar'
-      ExplicitSize.cx = 8.000000000000000000
-      ExplicitSize.cy = 8.000000000000000000
-      object Layout6: TLayout
-        Align = Top
-        Size.Width = 260.000000000000000000
-        Size.Height = 50.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 0
-        object SpeedButton2: TSpeedButton
-          Align = Left
-          Size.Width = 50.000000000000000000
-          Size.Height = 50.000000000000000000
-          Size.PlatformDefault = False
-          StyleLookup = 'priortoolbutton'
-          Text = 'btnVoltar'
-          OnClick = btnVoltarClick
-        end
-        object Label3: TLabel
-          Align = Client
-          StyledSettings = [Family, Style, FontColor]
-          Size.Width = 210.000000000000000000
-          Size.Height = 50.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.Size = 25.000000000000000000
-          TextSettings.HorzAlign = Center
-          Text = 'Editar Cliente'
-          TabOrder = 1
-        end
-      end
-      object Label4: TLabel
-        Align = Top
-        StyledSettings = [Family, Style, FontColor]
-        Position.Y = 50.000000000000000000
-        Size.Width = 260.000000000000000000
-        Size.Height = 39.000000000000000000
-        Size.PlatformDefault = False
-        TextSettings.Font.Size = 16.000000000000000000
-        Text = 'Codigo'
-        TabOrder = 3
-      end
-      object edtCodigoEdicao: TEdit
-        Touch.InteractiveGestures = [LongTap, DoubleTap]
-        Align = Top
-        TabOrder = 6
-        Position.Y = 89.000000000000000000
-        Enabled = False
-        Size.Width = 260.000000000000000000
-        Size.Height = 22.000000000000000000
-        Size.PlatformDefault = False
-      end
-      object Label5: TLabel
-        Align = Top
-        StyledSettings = [Family, Style, FontColor]
-        Position.Y = 111.000000000000000000
-        Size.Width = 260.000000000000000000
-        Size.Height = 39.000000000000000000
-        Size.PlatformDefault = False
-        TextSettings.Font.Size = 16.000000000000000000
-        Text = 'Nome:'
-        TabOrder = 2
-      end
-      object edtNomeEdicao: TEdit
-        Touch.InteractiveGestures = [LongTap, DoubleTap]
-        Align = Top
-        TabOrder = 5
-        Position.Y = 150.000000000000000000
-        Size.Width = 260.000000000000000000
-        Size.Height = 22.000000000000000000
-        Size.PlatformDefault = False
-      end
-      object Label6: TLabel
-        Align = Top
-        StyledSettings = [Family, Style, FontColor]
-        Position.Y = 172.000000000000000000
-        Size.Width = 260.000000000000000000
-        Size.Height = 39.000000000000000000
-        Size.PlatformDefault = False
-        TextSettings.Font.Size = 16.000000000000000000
-        Text = 'Endere'#231'o:'
-        TabOrder = 1
-      end
-      object edtEnderecoEdicao: TEdit
-        Touch.InteractiveGestures = [LongTap, DoubleTap]
-        Align = Top
-        TabOrder = 4
-        Position.Y = 211.000000000000000000
-        Size.Width = 260.000000000000000000
-        Size.Height = 22.000000000000000000
-        Size.PlatformDefault = False
-      end
-      object Layout7: TLayout
-        Align = Top
-        Position.Y = 233.000000000000000000
-        Size.Width = 260.000000000000000000
-        Size.Height = 50.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 7
-        object btnSalvarEdicao: TSpeedButton
-          Align = Center
-          Margins.Left = 5.000000000000000000
-          Margins.Top = 5.000000000000000000
-          Margins.Right = 5.000000000000000000
-          Margins.Bottom = 5.000000000000000000
-          Size.Width = 260.000000000000000000
-          Size.Height = 22.000000000000000000
-          Size.PlatformDefault = False
-          Text = 'SALVAR'
-          OnClick = btnSalvarEdicaoClick
-        end
-      end
-      object btnDeletar: TSpeedButton
-        Align = Top
-        Margins.Left = 5.000000000000000000
-        Margins.Top = 5.000000000000000000
-        Margins.Right = 5.000000000000000000
-        Margins.Bottom = 5.000000000000000000
-        Position.X = 5.000000000000000000
-        Position.Y = 288.000000000000000000
-        Size.Width = 250.000000000000000000
-        Size.Height = 38.000000000000000000
-        Size.PlatformDefault = False
-        Text = 'DELETAR'
-        OnClick = btnDeletarClick
-      end
-    end
-  end
   object Image1: TImage
     MultiResBitmap.Height = 48
     MultiResBitmap.Width = 48
@@ -477,29 +60,29 @@ object frm_Clientes: Tfrm_Clientes
         PNG = {
           89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
           87000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-          02B8494441546843ED983D6813511CC0DFC7159B54DA7C68FD2841541C5C5428
-          D8566B9AA0A075A9A3D85107EB624B27510717A7423B48DC747370A86E8A91A2
-          12C5809B8A456910A3B594D6D6126A3179EF79FFE405127397F42377F794FB2D
-          EFDEBBC0FD7EF772091C727171F9B7C1725486F4D0502721E4BE7EB848193BB3
-          7D6C2C5538638C5201D3C3C3ED82B138A2D42F97D2398CA3BB4646A6E4BC0222
-          47C7198F27BA260F77DF449A5694074288F38999C1C13D725E81123B00F282B2
-          C71469CD9BE7679FEF4BBE0C6B4294BA99EE84E33B502A0FF34CB0B5E753C7D1
-          170897DDDB90C6D8B83C2EC3D1001143EDE16F176354889C5CCA0311EFBBC2AF
-          4A2318E72DF2B00CC702409E11140FAEBC3BD49D1E584422FB439ECAB3EC0F1E
-          2946708496302167E5A932A81C6DA528AF5F3CFFC07A7373FE2D99E44CBAA557
-          204C3DF90FE9643DDE50C6177C124C7F3E1F1A1D7D2D97CBB0FD21FE5BBE94F9
-          C6FDA944E8B60FE186406185FFD437E0545FF498A13C60EB0E5493076027B62E
-          27BF7F69EE150C8B2CC5B8AA3C605B008FA14E4ED053FD823EB964483E22F366
-          723A70FA5C5FB4A7AA3C60CB57A8D69D2F85E90F2CE1E824B9846ACA03960758
-          290F581A60B53C6059801DF280250176C903750FB0531EA86B80DDF240DD029C
-          9007EA12E0943CB0E10027E5810D05382D0FAC3B400579605D01AAC8036B0E50
-          491E5853806AF2C0AA035494075615A0AA3C5033406579A06A80EAF280E97B21
-          FEC8BB836DC2F7549607CC5F6C35F213682F6D620DF8AB5C31C44979C0344010
-          1EA198B6E911D82CC26979C03C20C7A2309A45A8200F1806DCBA7EA02331D5B6
-          5B4E2B225491070C03167ED10B571F1E44CF3E6E932B65111F5491070C036697
-          BC919CFEFB79ED412182F15C8A23718708ED0AD9E939AE8A3C60F83FD0DF1F59
-          083465E75A7D2B13CD9EDF772FDF78AB8CB08B8BCB7F05427F005B53758A8BF5
-          E83A0000000049454E44AE426082}
+          02BC494441546843ED983F4C13511C807FEF5E5B69556829E21FD218EDE4A226
+          24028AA58D263671C0515C75302C42988C3AB83891C0603AEAE6E0806E1A6B88
+          1A304AE2A44662D2C658454240903440B8BBF7ECAF7D8DADBD6BF9D3DE3D4DBF
+          E5DD7BAFC3F7DDBB4B93833A75EAFCDB10314A436A70B05351948799CB25AAEB
+          17F68D8E26733BC64815303334D4CE753D0E94FAC4524A23247270783821E625
+          2862B49DB1F844D7F489EE3BE070E4E5910030363E3B307058CC4B90E204509E
+          53F5290557E3AE85B997C1B7932117E7856EA62761FB0914CAE33CED6FED4974
+          9C7A05A4E8DE061CBA3E26AE8BB03580C7A03DF4FD6A8C72D0C452168CF8D815
+          7A5D18A133D6242E8BB02D00E55505E2FEB50FC7BB53FD4BC0D77F8AAD2C2B3E
+          FFC97C040358268A72516C1541C5682979792740F685F568F3BE96F4D46CAA29
+          CA815077F6471954B72790F6FA9FF9535F2E074646DE88E5222C7F89FF962F64
+          A1E148722210F3027135E756D8AFCC01447B23A70DE5114B4FA09C3C8227B167
+          65EAC7D7C628D789AE52A29495472C0B6031E8D414789E91F78A2543B211E977
+          D333CDE72FF5467ACACA23963C4295EE7C216AE685753038A7F4434579A4E601
+          B594476A1A506B79A4660156C8233509B04A1EA97A8095F2485503AC9647AA16
+          60873C529500BBE4916D07D8298F6C2BC06E7964CB0132C8235B0A90451ED974
+          804CF2C8A602649347361C20A33CB2A10059E5918A0132CB2365036497474CBF
+          0BB1279EFDDA0EF2406679C4FCC356033BCB8374A7EA24DFC48A2176CA23A601
+          5C616127A16D10A4C42CC26E79C4FC11D2F4088E661132C8238601776F1DED98
+          4CB41D12D3920859E411C380C5557AE5C6E363F0E2F35EB1F2274273924FB2C8
+          23860173CB9EB0A62B70F3512E42635A9201BFE7E08EEBF480FB8C2CF288E1FF
+          405F5F78B165B73ADFEA5D1B6F74AFDFBF76FBBD34C275EAD4F9AF00F80D691D
+          758F114673020000000049454E44AE426082}
         FileName = 'C:\Users\Joaos\Downloads\icons8-editar-48.png'
       end>
     Enabled = False
@@ -520,73 +103,73 @@ object frm_Clientes: Tfrm_Clientes
         PNG = {
           89504E470D0A1A0A0000000D4948445200000040000000400806000000AA6971
           DE000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-          083349444154785EED9A7F8C94C519C7E79979DF77F7CE838370FC01D5AA684B
-          0B96A495138B553C7FB62934A5F5401A492BC5B5409AD6FE485BDA142E4D819A
-          B67F29E2819A4894C819A429B52DCDA9A70D950BD6DA501A6C812BCA9914A93F
-          30C2EDBE334F9F67DED9BD63E5E0DDF7DDE5CEB89F64723BDF99CC3BEFB3CF8F
-          99CD893A75EAD4A9F30106DCDF9A72D72ED3E01BFCA500FC4A28042A84471B0B
-          F27B1D6D70D24DB1C49D574DA4FB5B539AF3F8E079462E3F4FAB71CD5A8D6F32
-          72058079C80D97883BAF9AD4DC00BFEA31778E11F2D6ACD66F8FD1D8DA68F00A
-          FB99341E73D362CFAB36350D81F54F9BCB54DEF40A4F3580C1DB7237CA4758EF
-          EC360B50C06361A84F8294B385270A71E62DBF51BEC87A35A99901B63E8D4DF9
-          82DE23849A8AC2742EBE499DF22D6EDEA9EF07217342E8FD9172F67981AF662E
-          688377DC5055A859080427CCFA26ADA636857A6FF0067CDBC925CEF7E5B79AB4
-          FE9B9D13735E70D26C7272D5A88901FEF4A459D2847231C5F03BD950B52F5C28
-          4FB8A1126D94D9B305B588E734192128F93D7CF6797221AFED86AA42D54360F7
-          6FCCF4BC36BD9EA71A11F0ABB3E7C987DDD069F9CB7673AB90B045688A734F5E
-          79E53CF9921B3A85B8F32AA5AA06D8F5986918E39BE705A8194EAA09C6E87D05
-          5FB5CEFC02BCEBA4C454D500071FD70F02C8DB5DB7A6209A87A6DCA2AA1A0E75
-          3E88C40A8169AB30387ED4FC2C045CEC819AE4E451492874BF126AF3D809E2A7
-          FB3A20EFE4618965808B97E33A9AF803D77D5F60D0ACEBBB4FFDC87587259601
-          A6E4C2239E549301F0AAFDF7C95D4E1E957C34879FA1D3CD73A1D1FD073BBD0F
-          397958621D84B2424DF6E8B032DA5F9E79B913FECC7BE53D3BE98CC4F280194B
-          11F9EFDF374169FEBD4F45DA6861C575837B3BDD7E872396012E5F122DF80255
-          792B10DD3B469701AE9F3BB8B7D3ED3715B36E47E4E6BAA39E4AF61B2B0778A1
-          EEE7B8BA6A31259851CEECAF99AB79AF9ED1479C744662B9C8B5B7E9B502E40F
-          5DF77D8259FBCC66B5D275862596074C1C90ABA436EB049596C8BAA3B885FA88
-          67CCDA8927E56AB7FD33922849DCB428FCAB14EA9346E0AC9D5B64AF934784CF
-          2E30AD4241AF11FAC59D5BBC4F393936897E10F10D1C646BFB5A4C71D288A184
-          B884F7126838E0A48A48E401F3BFACEF16527E9F2EA53F7EA24BAE99BB085BFC
-          501C75C3E7042C60CBF6EDF2D8FC7643710E3FA798BFFB892E55F1713D910728
-          80431E15194FE3C5DCDFB1055EF750BF69B573D10AE22D7E797E36EFC16A060E
-          71BF52128680B021E0D135C149947CC4A12809E1ACAEC7018636AB534BADD3DA
-          764CEA92BBF31E58A31739E8A48A4864800C3D8C8C20A4C19201948003ACF914
-          934E2A61756AE554ACD3DA764CAB9201780F56CB9F4303042DD0E7E5B5CEE4C5
-          05EDED18B0E61B79C07D73EF3180D3DF4302DD263C2A73D600B91CFABC07DECB
-          40160EDB491592F8AC9C9B1BF6D1F77EA106FCC803BF95FF5EFA79738704E874
-          C3350505DEB17187DCF4F579E65285F02F8DBAEF81DF79361F554A220F6028E9
-          D86F3C284479803E173DE05C34EB0159E7113E262B814C0A034479C0C7C80012
-          84CD01924E62EB9F0418DAEC3C6AE975DD6FC7F2D10B7B740EB17D9D2CFE99E4
-          0640570A314A84135BE115AFA007322026AF9A8B8D7692A358BECAA944BFEB16
-          D340DA247EC66BE385BDE8281395C040242B814C2A0FB0EEE83CA0A3038C94E2
-          3F9E51907F172FB2931C761EB5722AD1FDE35CEE147820FABABA40B3C6CFE679
-          E48523E001E476EC7E549B4BA5301382D528B39E5209AC9B96BD1053891EE45D
-          094428BD2C3FDB6A29422071155835075B40D2F1D7E8B757F778CD566BD3F780
-          902BEC845A81E69ED5CFA86FF2C7D56DE11B1408E302892D2BBBA39361A524F6
-          808E1E3AFEE6E9F82BD4D835D79B09AC2957196ADA5CC6E76752488C1379F156
-          D29767121B80A193D921EBAAAE146630AA04BE31BFFF490F40B1459A1043B54A
-          755E933515462550BA90C8E0E0B13809A90C20055D8B390B87910128160F709F
-          62F3941C60B5B2ACCE54A2F39A56A772CB7D2EBFDC0F60302724219D07B84AE0
-          436400E4646434D2262FDADA8E74558F28BA6F3971755E8BD7E4B5C79E003A81
-          72B8451580DAC81980AFA07613EE5AFCDDE7E5896C41BC46B119FCF7553CDF4E
-          22CA5FA8485C9DD7E235E9C2D37FE70BD1FF04F8219D01781E9D47ECA48424AE
-          024C67ABB95900FC4108D39DEB5537B0B66166F8AC94EA6A3BA1EAE86773BDDE
-          1CFEB461A6EE96525E6704DEFC8D5EB9D30E27209D07C82804400FC67C4059BA
-          F80D56BD0DF9D94BD10994355518C1102884148F7415A54D5CB0755A742DA6DB
-          597442D466DD923D00DC8A2F50EC57AA53BCFF22D2A28477FFE5E8F333F9D9CD
-          03C9AEC145521980E2B1E04BF14A83540A33F861D602BAA97179F25096BC82FB
-          DCCA89AB07DAD8924759DF7AC0388317F233B3521C5EB0EFECFF037026521980
-          C9F2374EE5485256E63E7D535129445D3240D4779D21C4D5952077A7BE720650
-          9AAEC1B69FAE0432A99220B3ED32BD11402E45C4655FDA2B376C9F6AC6140273
-          944E881937A52A84420FF87939F18BFBE5F16D33CC3240584FC7E28DF3F7AA9C
-          9B9288D41EE0157F0A439CCE7DDE6016E572CFE863C5584EDFF4EB192D97F1DA
-          F6991AA7B1AE8C1C790FF8E3C7CD3528A0470BDDDF18A8E96D2FC19B6EA826EC
-          F8048EF742FD0F7AFD4928F09ACFFD533EE7861291DA00B409E89EAA77D3865A
-          51E8DD52C8EF1C53B0276D722A87AB4C7388AD00E6D752A82BF85937EC579F06
-          01A7C922F1496D00A6FB52738904F31408652B41ADA1973F2C415E3BE76599EA
-          14C854C500CCEE8F9909611E57D2F6E6D3AA640855BA0B5407ADE9CD0F53B86D
-          93795833FB55F93F3750A74E9D3A75EA244288FF035B7BC7B8175DB1DB000000
-          0049454E44AE426082}
+          084049444154785EED9A7F8C545715C7EFB9EFBE37BBCBF22B2C7F80AD6D6915
+          854AA2654BA5B674FB532318D12E1453A2453A1588D1FA232A1A6163046CD4BF
+          5A4A17DA26254ACA36142356C56CDB6D0D960DB5D620862AB0D2B24DA4D81F34
+          6566DEBBF778CE7D7766972D2C6FDECCB0DB743EC9CDCCFDDE93F7EE3BEFDC73
+          EE9D8CA853A74E9D3AEF63C07DD694BBF79846DFE0CF05E82F1584401FBD5F37
+          85F23B1D6D90732696A476D544BACF9A32BE800F8D3172E518ED4F98A8FD89CD
+          46AE02300FBBE11249EDAA49CD1DF08B1E73D758216FCBE8F0ADB11A5B9B0C5E
+          69BF93C663CE2CB15DB5A9E912D8F894B9DCCB47BDC2F71BC1E0EDD99BE4AF58
+          EFEC368B50C0A3854298F3949A2B940893D8ADBC49BEC07A35A99903B63F85CD
+          8530DA27849A8EC2742EBDD93BED2D6EDDAD1F0021B342440763E5DC7681AF66
+          2F6A83B7DD5055A8D912084E998DCD5A4D6F8EF4FEE075F8A6934B5CE0CB6F34
+          6BFD376B93D02EC8992D4EAE1A3571C09F9E30CB9A512E0D74F87643E4B52F5E
+          2C4FB9A1126D94D91B426F09DB341B2128F93D726E3BB998AFED86AA42D597C0
+          DEDF9899B930EA0D02BF0901BF3C77817CC40D9D91BFEC34B70909DB840E73A0
+          D455572D902FBAA1D3486A572E5575C09E474DE358DF3C27C09BE5A49A604C74
+          20F455EBECCFC13B4E4A4D551D70F831FD1080BCC3756B0AA27978DAAD5E5597
+          439DF7238996C08C35189C3C6E7E12815EAAC09FE2E4514928C27E25FCADE326
+          891F1FE8003A520C4F22075CB2123790E1F75CF73D8141B3A1EF7EEF07AE7B56
+          1239605AB6704C497F2A005E7DF07EB9C7C9A3920F67F153B4BB79363261FFE1
+          CEE0034E3E2B8936420DC29FAA68B332DA1F9E79A913FECC73E5393B69581245
+          C0ACE588FCF9F72D50B2BFEFC9581B2DACBA7E606E679AEFD948E4802B96C517
+          7C9EAABC1588EE5DA3CB0137CC1F98DB99E65B1173EE40E4E6BAA39E72E69B28
+          07A8884A0BADABAB97528219E5CCFD8AB986E7AA4C78CC49C3922844AEBB5DAF
+          1720BFEFBAEF11CCFAA7B77AAB5DE7AC248A80C979B9466AB301A9B4C4DE1DC5
+          2D0A8F2963D64FCEC9B56EFAC3922A49DCBC24FAAB14DEC78DC039BBB7C95E27
+          8F089F5E645A8507BD46E817766F539F70726252FD20E21B38CCDEF6B598E6A4
+          11C313E2529E4BA0E19093CA2255042CFCA2BE4748F95D3A94FEF0F12EB96EFE
+          126CF12371DC0D9F1730C4969D3BE58985ED86D639FC94D6FC3D8F7779656FD7
+          5345800770445191511A2FE1FEAE6DF09AC2F00DAB9D8F96176FF2C3F3BD790E
+          56337084FBE592720908BB04141D139C44C9471E899310CEE97A0C6070B33AB5
+          8A75BAB61D53BA14EE3C07D6E8410E3BA92C5239204337232708694CC9019E80
+          43ACF9B4269D54C2EAD48652B64ED7B663DA2B3980E760B5C2797440D0027D2A
+          17EA4C0E2F6C6FC78035DFC843EECDBDCB014E7F1729749BF0A8CC590764B3E8
+          F31C782EF906386A8DCA24F55E393BBFD0478F7D9106FCD083BF95FF5EFE5973
+          A704E874C3350505DEB97997DCF2D505E6320FE15F1AA3BE077FE7DB7C542EA9
+          228051C6B36F3C08E33C40DF8B11703E9A8D800617113ECA542590A9C001711E
+          F031768004617380A49DD8C6270006376B47AD723DECB76385B8E62BDA87D8BE
+          4EB7FE99F40E40570A11AD0326B7C2CB2A1FE63320A6AE998F4DD6C8512C5F43
+          2947BFFB56D348DA14BEC7AB13853DE878262E8181485702998A22C086A38B80
+          8E0E3052C17F94F1A1F00E5E6C8D1CD68EDA50CAD1FD935CEE7C501EF4757581
+          668DEFCD76148523100114761C7E549B4BA5301349AB51663DAD12D8301DF240
+          4C397A5070251065E961F9DE56AB6009A4AE026BE6610B48DAFE9AF0ADB53DC1
+          78ABB5E97B41C855D6A056A0B977EDD3DED7F9EBDAB6C2EBF4F81302892DABBB
+          E39D61B9A48E808E1EDAFEE668FB2BFC71EB6E309358F30CD4BE12609C00F99E
+          B424266041BC99F6E199D40E607C298FD85075A530837125F08DF9FD8F7A008A
+          2DD68418AC95ABF33559F3A2B8044AB7241A70605B9C868A1C20051D8B390B47
+          B103682D1EE2BE8ACC6939C06A43B23A538ECED7B43A955BEE73F9E57E00907A
+          FD33954580AB043EC40E404A46C684A8002FDEDE8E74548F2986EF5092EA7C2D
+          BE265F7BDC29A01D282FB7B802501B3907F011D44EC21D8BBFFD9C3CD5148A57
+          696D06FF7D052FB046C4D0072A9254E76BF1353379D17FD7F3F17F02FC88F600
+          6C47FB116B9492D45580E96C35B708803F0861BAB3BDDE8DAC6D9A1D3D23A577
+          8D35A83AFA996CAF9AC7DF36CDD6DD52CAEB8DC05BBED62B77DBE11454160132
+          5E02A007D67C4059BAF806ABDE06FDECE5A1B14BC00B4770098411F4193A8A42
+          1E2FDC3E233E16D3E92CDE216AB361D93E006EC50728F6CBD569BDFF2CD6E284
+          F7C015E8F33DF9DEE3F3E98EC1452A7200ADC730A3E0E531CAF730831F642DA0
+          931A972785B21415DCE73694A47A4011C67DCAFA36022618BC88EFD9A4E0E8A2
+          03E7FE0FC07054E400A681B6A65C8E246565EED39B8A4B21EA9203E2BEEB0C22
+          A9EE09B425CF730EF0341D836D7F605B9C968A9220B3E372BD19402E47C4155F
+          D82F37ED9C6EC6E683E87820FC8C33A90A054127CD829AFCF983F2E48E596605
+          206CA46DF1E685FBBDAC334945C511A08A3F8521CEE43E4FB009D54A65C213C5
+          B55C790B5F6BD46A055FDBDE53E30CD63D330A22E08F1F35D7A2801E2DC2FEA6
+          C09FD9F622BCE1866AC2AE8FE1441585FFA02C3105055EFB997FCA67DD502A2A
+          76004D02BAA7EBBDF43E5A51E8BD52C86F9DF0605FA5C969285C65C647D80A60
+          7E29857725DFEBC683DE2741C019B248722A7600D37D99B95442F42408DF5682
+          5A83223C2A415D37EF2559D12E90A98A0398BD1F3193A202AEA65DE1427A29E4
+          08BF7416A80EA1A6603B8A42EE90055837F715F93F3750A74E9D3A75EAA44288
+          FF034DDAD4A1B42579290000000049454E44AE426082}
         FileName = 'C:\Users\Joaos\Downloads\icons8-lixeira-64.png'
       end>
     Enabled = False
@@ -11775,6 +11358,397 @@ object frm_Clientes: Tfrm_Clientes
     Position.Y = 304.000000000000000000
     Visible = False
   end
+  object TabControl1: TTabControl
+    Align = Client
+    Size.Width = 260.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 0
+    TabOrder = 0
+    TabPosition = None
+    Sizes = (
+      260s
+      480s
+      260s
+      480s
+      260s
+      480s)
+    object tbConsultar: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tbConsultar'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object Layout1: TLayout
+        Align = Top
+        Size.Width = 260.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object SpeedButton1: TSpeedButton
+          Align = Left
+          Size.Width = 50.000000000000000000
+          Size.Height = 60.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'priortoolbuttonbordered'
+          Text = 'priortoolbutton'
+        end
+        object btn_InserirCliente: TSpeedButton
+          Align = Right
+          Position.X = 210.000000000000000000
+          Size.Width = 50.000000000000000000
+          Size.Height = 60.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'addtoolbutton'
+          Text = 'addtoolbutton'
+        end
+        object Label1: TLabel
+          Align = Client
+          StyledSettings = [Family, Style, FontColor]
+          Size.Width = 160.000000000000000000
+          Size.Height = 60.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 20.000000000000000000
+          TextSettings.HorzAlign = Center
+          Text = 'PEDIDOS'
+          TabOrder = 2
+        end
+      end
+      object Layout2: TLayout
+        Align = Top
+        Position.Y = 60.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 69.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object btn_Atualizar: TSpeedButton
+          Align = Right
+          Position.X = 210.000000000000000000
+          Size.Width = 50.000000000000000000
+          Size.Height = 69.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'refreshtoolbuttonbordered'
+        end
+        object edt_Pesquisa: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 1
+          Position.Y = 11.000000000000000000
+          Size.Width = 210.000000000000000000
+          Size.Height = 27.000000000000000000
+          Size.PlatformDefault = False
+        end
+        object edt_Data: TDateEdit
+          Date = 45418.000000000000000000
+          Position.X = 8.000000000000000000
+          Position.Y = 39.000000000000000000
+          TabOrder = 2
+        end
+      end
+      object Layout3: TLayout
+        Align = Client
+        Size.Width = 260.000000000000000000
+        Size.Height = 351.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object ListView1: TListView
+          ItemAppearanceClassName = 'TDynamicAppearance'
+          ItemEditAppearanceClassName = 'TDynamicAppearance'
+          HeaderAppearanceClassName = 'TListHeaderObjects'
+          FooterAppearanceClassName = 'TListHeaderObjects'
+          Align = Client
+          Size.Width = 260.000000000000000000
+          Size.Height = 351.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+            item
+              AppearanceObjectName = 'txtEndereco'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Width = 140.000000000000000000
+              Appearance.Height = 20.000000000000000000
+              Appearance.Align = Center
+              Appearance.PlaceOffset.X = 27.000000000000000000
+              Appearance.PlaceOffset.Y = 24.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'imgDeletar'
+              AppearanceClassName = 'TImageObjectAppearance'
+              Appearance.Width = 20.000000000000000000
+              Appearance.Height = 20.000000000000000000
+              Appearance.PlaceOffset.X = 216.000000000000000000
+              Appearance.PlaceOffset.Y = 22.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'Text6'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Width = 145.000000000000000000
+              Appearance.Height = -92.000000000000000000
+              Appearance.PlaceOffset.X = 54.000000000000000000
+              Appearance.PlaceOffset.Y = 104.000000000000000000
+            end>
+          ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+            item
+              AppearanceObjectName = 'Text1'
+              AppearanceClassName = 'TTextObjectAppearance'
+            end>
+        end
+      end
+    end
+    object tbInserir: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tbInserir'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object Layout4: TLayout
+        Align = Top
+        Size.Width = 260.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object btnVoltar: TSpeedButton
+          Align = Left
+          Size.Width = 50.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'priortoolbutton'
+          Text = 'btnVoltar'
+        end
+        object Label2: TLabel
+          Align = Client
+          StyledSettings = [Family, Style, FontColor]
+          Size.Width = 210.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 25.000000000000000000
+          TextSettings.HorzAlign = Center
+          Text = 'Inserir Cliente'
+          TabOrder = 1
+        end
+      end
+      object lbCodigo: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Position.Y = 50.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 39.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 16.000000000000000000
+        Text = 'Codigo'
+        TabOrder = 3
+      end
+      object edtCodigo: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 6
+        Position.Y = 89.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object lbNome: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Position.Y = 111.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 39.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 16.000000000000000000
+        Text = 'Nome:'
+        TabOrder = 2
+      end
+      object edtNome: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 5
+        Position.Y = 150.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object lbEndereco: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Position.Y = 172.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 39.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 16.000000000000000000
+        Text = 'Endere'#231'o:'
+        TabOrder = 1
+      end
+      object edtEndereco: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 4
+        Position.Y = 211.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Layout5: TLayout
+        Align = Top
+        Position.Y = 233.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 7
+        object btnSalvar: TSpeedButton
+          Align = Center
+          StyledSettings = [Family, Style, FontColor]
+          Text = 'Salvar'
+          TextSettings.Font.Size = 20.000000000000000000
+        end
+      end
+    end
+    object tbEditar: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tbEditar'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object Layout6: TLayout
+        Align = Top
+        Size.Width = 260.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object SpeedButton2: TSpeedButton
+          Align = Left
+          Size.Width = 50.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'priortoolbutton'
+          Text = 'btnVoltar'
+        end
+        object Label3: TLabel
+          Align = Client
+          StyledSettings = [Family, Style, FontColor]
+          Size.Width = 210.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 25.000000000000000000
+          TextSettings.HorzAlign = Center
+          Text = 'Editar Cliente'
+          TabOrder = 1
+        end
+      end
+      object Label4: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Position.Y = 50.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 39.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 16.000000000000000000
+        Text = 'Codigo'
+        TabOrder = 3
+      end
+      object edtCodigoEdicao: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 6
+        Position.Y = 89.000000000000000000
+        Enabled = False
+        Size.Width = 260.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Label5: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Position.Y = 111.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 39.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 16.000000000000000000
+        Text = 'Nome:'
+        TabOrder = 2
+      end
+      object edtNomeEdicao: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 5
+        Position.Y = 150.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Label6: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Position.Y = 172.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 39.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 16.000000000000000000
+        Text = 'Endere'#231'o:'
+        TabOrder = 1
+      end
+      object edtEnderecoEdicao: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 4
+        Position.Y = 211.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Layout7: TLayout
+        Align = Top
+        Position.Y = 233.000000000000000000
+        Size.Width = 260.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 7
+        object btnSalvarEdicao: TSpeedButton
+          Align = Center
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Size.Width = 260.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'SALVAR'
+        end
+      end
+      object btnDeletar: TSpeedButton
+        Align = Top
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Position.X = 5.000000000000000000
+        Position.Y = 288.000000000000000000
+        Size.Width = 250.000000000000000000
+        Size.Height = 38.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'DELETAR'
+      end
+    end
+  end
   object FDConnection1: TFDConnection
     Params.Strings = (
       
@@ -11786,11 +11760,9 @@ object frm_Clientes: Tfrm_Clientes
     Left = 168
     Top = 380
   end
-  object fdq_Clientes: TFDQuery
+  object FDQuery1: TFDQuery
     Connection = FDConnection1
-    SQL.Strings = (
-      'select * from clientes')
-    Left = 80
-    Top = 380
+    Left = 64
+    Top = 385
   end
 end

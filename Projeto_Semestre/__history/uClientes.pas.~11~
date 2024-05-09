@@ -12,13 +12,12 @@ uses
   FireDAC.Phys.SQLite, FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs,
   FireDAC.Phys.SQLiteWrapper.Stat, FireDAC.FMXUI.Wait, FireDAC.Stan.Param,
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, FMX.ListView, FMX.Edit, FMX.TabControl, FMX.Objects;
+  FireDAC.Comp.Client, FMX.ListView, FMX.Edit, FMX.TabControl;
 
 type
   Tcliente = record
     codigo : Integer;
     nome, endereco : string;
-    foto : TBitmap;
 
   end;
 
@@ -62,10 +61,6 @@ type
     Layout7: TLayout;
     btnSalvarEdicao: TSpeedButton;
     btnDeletar: TSpeedButton;
-    Image1: TImage;
-    Image2: TImage;
-    Image3: TImage;
-    imgCliente: TImage;
     procedure btn_AtualizarClick(Sender: TObject);
     procedure atualizaClientesDoBanco();
     procedure insereClienteNaLista(cliente: TCliente);
@@ -84,7 +79,7 @@ type
   private
     { Private declarations }
   public
-
+    { Public declarations }
   end;
 
 var
@@ -96,7 +91,6 @@ implementation
 
 procedure Tfrm_Clientes.atualizaClientesDoBanco;
 var vCliente : Tcliente;
-  foto_stream : TStream;
 begin
 //Efetuar a consulta do banco e trazer todos os clientes
 
@@ -118,22 +112,9 @@ ListView1.Items.Clear;
 
 while not fdq_Clientes.Eof do
   begin
-
-    if fdq_Clientes.FieldByName('foto').AsString <> '' then
-    begin
-       foto_stream := fdq_Clientes.CreateBlobStream(fdq_Clientes.FieldByName('foto'), TBlobStreamMode.bmRead);
-       vCliente.foto := TBitmap.Create;
-       vCliente.foto.LoadFromStream(foto_stream);
-       foto_stream.DisposeOf;
-    end
-    else
-      vCliente.foto := nil;
-
-
     vCliente.codigo := fdq_Clientes.FieldByName('codigo').AsInteger;
     vCliente.nome := fdq_Clientes.FieldByName('nome').AsString;
     vCliente.endereco := fdq_Clientes.FieldByName('endereco').AsString;
-
 
     insereClienteNaLista(vCliente);
 
@@ -178,8 +159,6 @@ begin
   editaClienteNoBanco(vCliente);
 
   ShowMessage('Cliente alterado com sucesso.');
-  TabControl1.TabIndex := 0;
-  atualizaClientesDoBanco;
 end;
 
 procedure Tfrm_Clientes.btnVoltarClick(Sender: TObject);
@@ -204,15 +183,6 @@ With ListView1.Items.Add do
   begin
     TListItemText(Objects.FindDrawable('txtCodigo')).Text := IntToStr(cliente.codigo);
     TListItemText(Objects.FindDrawable('txtNome')).Text := cliente.nome;
-    TListItemText(Objects.FindDrawable('txtEndereco')).Text := cliente.endereco;
-
-    if cliente.foto <> nil then
-    TListItemImage(Objects.FindDrawable('imgCliente')).Bitmap := cliente.foto
-    else
-      TListItemImage(Objects.FindDrawable('imgCliente')).Bitmap := Image1.Bitmap;
-
-    TListItemImage(Objects.FindDrawable('imgEditar')).Bitmap := Image2.Bitmap;
-    TListItemImage(Objects.FindDrawable('imgDeletar')).Bitmap := Image3.Bitmap;
   end;
 
 end;
@@ -222,12 +192,11 @@ begin
 
   fdq_Clientes.Close;
   fdq_Clientes.SQL.Clear;
-  fdq_Clientes.SQL.Add('insert into clientes (codigo, nome, endereco, foto)');
-  fdq_Clientes.SQL.Add(' values(:codigo, :nome, :endereco, :foto)');
+  fdq_Clientes.SQL.Add('insert into clientes (codigo, nome, endereco) values(:codigo, :nome, :endereco)');
   fdq_Clientes.ParamByName('codigo').AsInteger := cliente.codigo;
   fdq_Clientes.ParamByName('nome').AsString := cliente.nome;
   fdq_Clientes.ParamByName('endereco').AsString := cliente.endereco;
-  fdq_Clientes.ParamByName('foto').Assign(imgCliente.Bitmap);
+
   fdq_Clientes.ExecSQL;
 
 end;
@@ -240,26 +209,14 @@ var vCliente : TCliente;
     id_cliente : integer;
 begin
   //chamar a tela de edição
+  id_cliente := StrToInt(TListItemText(ListView1.Items[ItemIndex].Objects.FindDrawable('txtCodigo')).Text);
+  vCliente := buscarClienteNoBanco(id_cliente);
 
-  if ItemObject.Name = 'imgEditar' then
-  begin
-    id_cliente := StrToInt(TListItemText(ListView1.Items[ItemIndex].Objects.FindDrawable('txtCodigo')).Text);
-    vCliente := buscarClienteNoBanco(id_cliente);
+  edtCodigoEdicao.Text := IntToStr(vCliente.codigo);
+  edtNomeEdicao.Text := vCliente.nome;
+  edtEnderecoEdicao.Text := vCliente.endereco;
 
-    edtCodigoEdicao.Text := IntToStr(vCliente.codigo);
-    edtNomeEdicao.Text := vCliente.nome;
-    edtEnderecoEdicao.Text := vCliente.endereco;
-
-    TabControl1.TabIndex := 2
-  end;
-  
-  if ItemObject.Name = 'imgDeletar' then
-    begin
-      ShowMessage('Cliente deletado');
-    end;
-
-
-  
+  TabControl1.TabIndex := 2
 end;
 
 procedure Tfrm_Clientes.btn_InserirClienteClick(Sender: TObject);
@@ -307,14 +264,12 @@ fdq_Clientes.Close;
 fdq_Clientes.SQL.Clear;
 fdq_Clientes.SQL.Add('update clientes set');
 fdq_Clientes.SQL.Add(' nome = :nome, ');
-fdq_Clientes.SQL.Add(' endereco = :endereco, ');
-fdq_Clientes.SQL.Add(' foto = :foto ');
+fdq_Clientes.SQL.Add(' endereco = :endereco ');
 fdq_Clientes.SQL.Add(' where codigo = :codigo');
 
 fdq_Clientes.ParamByName('codigo').AsInteger := cliente.codigo;
 fdq_Clientes.ParamByName('nome').AsString := cliente.nome;
 fdq_Clientes.ParamByName('endereco').AsString := cliente.endereco;
-fdq_Clientes.ParamByName('foto').Assign(imgCliente.Bitmap);
 
 fdq_Clientes.ExecSQL;
 

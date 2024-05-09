@@ -6,7 +6,7 @@ uses
   uPrincipal in 'uPrincipal.pas' {frm_Principal},
   uClientes in 'uClientes.pas' {frm_Clientes},
   uProdutos in 'uProdutos.pas' {frmProdutos},
-  uPedidos in 'uPedidos.pas' {frmPedidos};
+  uPedidos in 'uPedidos.pas' {Form1};
 
 {$R *.res}
 
@@ -15,6 +15,6 @@ begin
   Application.CreateForm(Tfrm_Principal, frm_Principal);
   Application.CreateForm(Tfrm_Clientes, frm_Clientes);
   Application.CreateForm(TfrmProdutos, frmProdutos);
-  Application.CreateForm(TfrmPedidos, frmPedidos);
+  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.

@@ -5,8 +5,7 @@ uses
   FMX.Forms,
   uPrincipal in 'uPrincipal.pas' {frm_Principal},
   uClientes in 'uClientes.pas' {frm_Clientes},
-  uProdutos in 'uProdutos.pas' {frmProdutos},
-  uPedidos in 'uPedidos.pas' {frmPedidos};
+  uProdutos in 'uProdutos.pas' {frmProdutos};
 
 {$R *.res}
 
@@ -15,6 +14,5 @@ begin
   Application.CreateForm(Tfrm_Principal, frm_Principal);
   Application.CreateForm(Tfrm_Clientes, frm_Clientes);
   Application.CreateForm(TfrmProdutos, frmProdutos);
-  Application.CreateForm(TfrmPedidos, frmPedidos);
   Application.Run;
 end.

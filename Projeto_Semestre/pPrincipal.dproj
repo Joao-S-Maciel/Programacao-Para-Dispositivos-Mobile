@@ -145,6 +145,10 @@
             <Form>frmProdutos</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="uPedidos.pas">
+            <Form>frmPedidos</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
